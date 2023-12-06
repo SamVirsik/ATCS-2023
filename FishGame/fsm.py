@@ -16,6 +16,7 @@ class FSM:
 
     def process(self, input_symbol):
         action = self.get_transition(input_symbol, self.current_state)
+        #print(action)
         if action[0] is not None:
             action[0]()
         if action[1] is not None:

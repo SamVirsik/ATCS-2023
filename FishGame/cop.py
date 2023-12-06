@@ -53,14 +53,17 @@ class Cop(pygame.sprite.Sprite):
             return
         
         self.image = self.image_default
-        if self.move_to_x > self.rect.x:
-            self.rect.x += self.speed
-        elif self.move_to_x < self.rect.x:
-            self.rect.x -= self.speed
-        if self.move_to_y > self.rect.y:
-            self.rect.y += self.speed
-        elif self.move_to_y < self.rect.y:
-            self.rect.y -= self.speed
+
+        if not (self.rect.x+self.speed > self.move_to_x and self.rect.x-self.speed < self.move_to_x):#stops the cops from jittering around when the speed takes it back and forth above and below
+            if self.move_to_x > self.rect.x:
+                self.rect.x += self.speed
+            elif self.move_to_x < self.rect.x:
+                self.rect.x -= self.speed
+        if not (self.rect.y+self.speed > self.move_to_y and self.rect.y-self.speed < self.move_to_y):
+            if self.move_to_y > self.rect.y:
+                self.rect.y += self.speed
+            elif self.move_to_y < self.rect.y:
+                self.rect.y -= self.speed
     
     def move_randomly(self, player_location):
         if random.randint(1,3) is not 1:
