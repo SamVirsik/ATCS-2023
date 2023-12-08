@@ -18,8 +18,3 @@ class Person(pygame.sprite.Sprite):
         if keys[pygame.K_DOWN] or keys[pygame.K_s]:
             self.rect.y += 4
         self.rect.y = max(0, min(self.rect.y, self.SCREEN_HEIGHT - self.rect.height))
-
-#    def shoot(self):
-#        harpoon = Harpoon(self.rect.right, self.rect.centery)
-#        all_sprites.add(harpoon)
-#        harpoons.add(harpoon)

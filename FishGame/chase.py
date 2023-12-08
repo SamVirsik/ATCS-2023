@@ -17,7 +17,7 @@ class Chase(pygame.sprite.Sprite):
         self.cops = pygame.sprite.Group()
         self.players = pygame.sprite.Group() #needed for easy checking of collisions
 
-        self.escape_time =30 #have to escape the cops for 10 second to escape them altogether
+        self.escape_time =20 #have to escape the cops for 10 second to escape them altogether
     
     def set_up_images(self):
         self.cop_boat = pygame.image.load("Images/cop boat.png")
@@ -29,7 +29,6 @@ class Chase(pygame.sprite.Sprite):
         self.red_cop_boat = pygame.transform.scale(self.red_cop_boat, (100, 60))
         self.boat = pygame.transform.scale(self.boat, (50, 34))
         self.background = pygame.transform.scale(self.background, (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-
 
     def make_cops(self, num = 4):
         for i in range(num):
@@ -53,6 +52,8 @@ class Chase(pygame.sprite.Sprite):
 
         self.start_time = time.time()
 
+        self.caught == False
+
         running = True
         while running and time.time() - self.start_time < self.escape_time:
             for event in pygame.event.get():
@@ -72,3 +73,5 @@ class Chase(pygame.sprite.Sprite):
             hits = pygame.sprite.groupcollide(self.players, self.cops, True, True)
             if len(hits) >0:
                 running = False
+                self.caught = True
+        return self.caught
