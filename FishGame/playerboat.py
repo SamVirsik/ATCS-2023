@@ -7,7 +7,7 @@ class PlayerBoat(pygame.sprite.Sprite):
         self.SCREEN_HEIGHT = SCREEN_HEIGHT
         self.image = person_img
         self.rect = self.image.get_rect()
-        self.speed = 4
+        self.speed = 5
         self.rect.left = 50
         self.rect.centery = SCREEN_HEIGHT // 4
     
