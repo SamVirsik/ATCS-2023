@@ -12,6 +12,7 @@ class Person(pygame.sprite.Sprite):
         self.health = 100
 
     def update(self):
+        #Player can only move up and down, or it would be too easy to select the fish you want to shoot
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] or keys[pygame.K_w]:
             self.rect.y -= 4

@@ -12,6 +12,7 @@ class PlayerBoat(pygame.sprite.Sprite):
         self.rect.centery = SCREEN_HEIGHT // 4
     
     def update(self):
+        #This simply moves the player boat up and down and left right using either arrow keys or wasd
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] or keys[pygame.K_w]:
             self.rect.y -= self.speed
@@ -21,5 +22,7 @@ class PlayerBoat(pygame.sprite.Sprite):
             self.rect.x -=self.speed
         if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
             self.rect.x +=self.speed
+        
+        #ensures that the player remains in the window
         self.rect.y = max(0, min(self.rect.y, self.SCREEN_HEIGHT - self.rect.height))
         self.rect.x = max(0, min(self.rect.x, self.SCREEN_WIDTH - self.rect.width))

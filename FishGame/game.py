@@ -17,7 +17,7 @@ class FishGame:
     score = 0
     total_fish = 0
     got_caught = False
-    num_cops_chase = 0
+    num_cops_chase = 0 #this is the number of times they have been chased. Important for knowing how hard to make each cops chase
 
     def __init__(self):
         pygame.init()

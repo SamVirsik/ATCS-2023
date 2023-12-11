@@ -19,6 +19,7 @@ class Cop(pygame.sprite.Sprite):
         self.height = 60
 
     def move_direct(self, player_location):
+        #The method for chasing down the player when they are close
         if player_location.x > self.rect.x:
             self.rect.x += self.speed
         elif player_location.x < self.rect.x:
@@ -29,6 +30,10 @@ class Cop(pygame.sprite.Sprite):
             self.rect.y -= self.speed
     
     def random_smooth(self, player_location):
+        #this method is a simple way to make good looking random movement
+        #the cops choose a random spot on the board and then move there
+        #they don't choose random movements for every move - that's very jittery
+
         #The reason for the following long if statement is the following:
             #The cop has a certain speed.
             #That speed corresponds to a number of 
